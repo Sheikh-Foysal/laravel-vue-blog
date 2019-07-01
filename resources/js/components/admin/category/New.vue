@@ -3,10 +3,13 @@
         <div class="card card-default m-5">
               <div class="card-header">
                 <h3 class="card-title">Add Category</h3>
+                  <div class="card-tools">
+                      <router-link to="/category-list"  class="btn btn-success">Back</router-link>
+                  </div>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form role="form" @click.prevent="addCategory()">
+              <form role="form" @submit.prevent="addCategory()">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="categoryname">Category Name</label>
@@ -40,7 +43,7 @@
                 this.form.post('/add-category')
                     .then((response)=>{
                        this.$router.push('/category-list')
-                        toast({
+                        toast.fire({
                             type: 'success',
                             title: 'Category Added successfully'
                         })
