@@ -17,4 +17,11 @@ class CategoryController extends Controller
         $category->cat_name = $request->cat_name;
         $category->save();
     }
+
+    public function  all_category(){
+        $categories = Category::all();
+        return response()->json([
+            'categories' => $categories
+        ],200);
+    }
 }

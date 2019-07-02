@@ -4,13 +4,19 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 
+
+
+
 // Vuex Support
 import Vuex from 'vuex'
 Vue.use(Vuex)
 import storeData from "./store/index"
-const store = new Vuex.Store({
+const store = new Vuex.Store(
     storeData
-  })
+  )
+
+
+
 
 // Vue Router
 import VueRouter from 'vue-router'
@@ -18,8 +24,13 @@ Vue.use(VueRouter)
 import {routes} from './routes';
 
 
+
+
+
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('admin-main', require('./components/admin/AdminMaster.vue').default);
+
+
 
 
 // V-form
@@ -27,6 +38,8 @@ import { Form, HasError, AlertError } from 'vform'
 window.Form = Form;
 Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
+
+
 
 
 // Sweet alert
@@ -41,10 +54,14 @@ const toast = swal.mixin({
 window.toast = toast;
 
 
+
+
 const router = new VueRouter({
     routes,
-    mode: 'history'
+    mode: 'hash'
 })
+
+
 
 
 const app = new Vue({
