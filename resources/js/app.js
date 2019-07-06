@@ -16,6 +16,10 @@ const store = new Vuex.Store(
   )
 
 
+// Support Moment Js
+import {filter} from './filter'
+
+
 
 
 // Vue Router
